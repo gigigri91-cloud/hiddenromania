@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover hidden places in Romania - secret waterfalls, villages, mountains, hiking trails and authentic experiences.">
+    <meta name="keywords" content="hidden places Romania, secret waterfalls, hidden villages, Romania travel guide">
+    <meta name="author" content="Hidden Romania">
+    
+    <title>Hidden Romania - Discover Secret Places Tourists Never Find</title>
+    <link rel="canonical" href="https://hiddenromania.net">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%232E8B57'>🏔️</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"></script>
+</head>
+<body>
+        <!-- HEADER -->
+        <header class="header">
+            <div class="container-fluid">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="/" class="logo-link">
+                            <img src="images/logo.png" alt="Hidden Romania Logo" class="logo-img">
+                        </a>
+                    </div>
+                    
+                    <nav class="nav-menu">
+                        <a href="#hidden-places" class="nav-link">Hidden Places</a>
+                        <a href="#travel-guides" class="nav-link">Travel Guides</a>
+                        <a href="#interactive-map" class="nav-link">Interactive Map</a>
+                        <a href="#blog" class="nav-link">Blog</a>
+                    </nav>
+    
+                    <div class="header-actions">
+                        <div class="search-toggle">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <!-- HERO WITH INTEGRATED MAP -->
+    <section class="hero-section" id="hero">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&h=900&fit=crop" alt="Romanian Mountains">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Hidden<br>Romania</h1>
+                <p class="hero-tagline">Discover places tourists never find</p>
+                <p class="hero-description">Explore hidden waterfalls, secret villages, wild mountains and authentic Romanian experiences.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('hidden-places').scrollIntoView({behavior: 'smooth'})">
+                        Explore Hidden Places
+                    </button>
+                    <button class="btn btn-secondary" onclick="toggleMap()">
+                        <i class="fas fa-map"></i> Interactive Map
+                    </button>
+                </div>
+            </div>
+
+            <!-- EMBEDDED MAP -->
+            <div class="hero-map" id="heroMap">
+                <div id="mapContainer"></div>
+                
+                <!-- POPUP CARD -->
+                <div class="map-popup" id="mapPopup" style="display: none;">
+                    <img src="" id="popupImage" alt="Destination">
+                    <div class="popup-content">
+                        <h3 id="popupTitle">Moeciii de Sus</h3>
+                        <div class="popup-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>4.1 Drive</span>
+                        </div>
+                        <a href="#" class="popup-link">Read Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTERS SECTION -->
+    <section class="search-filters-section">
+        <div class="container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Find hidden places in Romania..." class="search-input">
+            </div>
+
+            <button class="btn btn-primary filter-explore">
+                Explore Hidden Places
+            </button>
+
+            <div class="filter-icons">
+                <div class="filter-item">
+                    <i class="fas fa-mountain"></i>
+                    <span>Mountains</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-water"></i>
+                    <span>Waterfalls</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-chess-rook"></i>
+                    <span>Castles</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-house"></i>
+                    <span>Villages</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-person-hiking"></i>
+                    <span>Hiking</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-water"></i>
+                    <span>Lakes</span>
+                </div>
+                <div class="filter-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>Hidden beaches</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL PAGE BACKGROUND WITH DESTINATIONS -->
+    <section class="full-bg-section" id="hidden-places">
+        <div class="full-bg-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&h=1400&fit=crop" alt="Romania Background">
+            <div class="full-bg-overlay"></div>
+        </div>
+
+        <div class="destinations-content">
+            <div class="container">
+                <h2 class="section-title">Hidden Destinations</h2>
+                
+                <div class="destinations-grid" id="destinationsGrid">
+                    <!-- Generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE BY CATEGORY SECTION -->
+    <section class="category-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Explore by Category</h2>
+            
+            <div class="category-grid" id="categoryGrid">
+                <!-- Generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAVEL GUIDES SECTION -->
+    <section class="guides-section" id="travel-guides">
+        <div class="container">
+            <h2 class="section-title">Travel Guides</h2>
+            <p class="section-subtitle">Expert insights into Romania's best-kept secrets</p>
+
+            <div class="guides-grid">
+                <article class="guide-card">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop" alt="Transylvania">
+                    <div class="guide-overlay">
+                        <h3>Hidden Villages of Transylvania</h3>
+                        <p>Discover authentic Saxon villages and local culture</p>
+                        <a href="pages/guides/transylvania-villages.html" class="read-btn">Read Guide</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" alt="Waterfalls">
+                    <div class="guide-overlay">
+                        <h3>Secret Waterfalls Guide</h3>
+                        <p>Find the most beautiful cascades away from crowds</p>
+                        <a href="pages/guides/secret-waterfalls.html" class="read-btn">Read Guide</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=300&fit=crop" alt="Hiking">
+                    <div class="guide-overlay">
+                        <h3>Best Hidden Hiking Trails</h3>
+                        <p>Adventure through untouched wilderness</p>
+                        <a href="pages/guides/hiking-trails.html" class="read-btn">Read Guide</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=300&fit=crop" alt="Off-beaten">
+                    <div class="guide-overlay">
+                        <h3>Places Tourists Never Visit</h3>
+                        <p>Escape the crowds and find authentic experiences</p>
+                        <a href="pages/guides/off-beaten-path.html" class="read-btn">Read Guide</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS SECTION -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Travel Tools</h2>
+            <p class="section-subtitle">Plan your adventure with our interactive tools</p>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">📅</div>
+                    <h3>Trip Planner</h3>
+                    <p>Create custom itineraries for your Romania adventure</p>
+                    <a href="pages/tools/trip-planner.html" class="btn btn-outline">Open Tool</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📍</div>
+                    <h3>Distance Calculator</h3>
+                    <p>Calculate routes between hidden destinations</p>
+                    <a href="pages/tools/distance-calculator.html" class="btn btn-outline">Open Tool</a>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">⛰️</div>
+                    <h3>Hiking Difficulty</h3>
+                    <p>Find trails matching your fitness level</p>
+                    <a href="pages/tools/hiking-difficulty.html" class="btn btn-outline">Open Tool</a>
+                </div>
+
+                <div class="tool-card viral">
+                    <div class="tool-icon">🎲</div>
+                    <h3>Random Generator</h3>
+                    <p>Discover a random hidden place</p>
+                    <a href="pages/tools/random-generator.html" class="btn btn-outline">Generate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Get Weekly Hidden Place Updates</h2>
+            <p>New discoveries, travel tips, and exclusive guides delivered to your inbox</p>
+            
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email..." required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#hidden-places">Hidden Places</a></li>
+                        <li><a href="#travel-guides">Travel Guides</a></li>
+                        <li><a href="#hero">Interactive Map</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Photography Guide</a></li>
+                        <li><a href="#">Travel Checklist</a></li>
+                        <li><a href="#">Best Seasons</a></li>
+                        <li><a href="#">Travel Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hidden Romania. All rights reserved.</p>
+                <p>Discovering authentic experiences across Romania</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
