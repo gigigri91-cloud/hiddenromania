@@ -132,37 +132,15 @@ img {
 .logo-img {
     height: 60px;
     width: auto;
-    max-width: 150px;
+    max-width: 200px;
     object-fit: contain;
     transition: all 0.3s ease;
 }
 
 .logo-img:hover {
     transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(46, 139, 87, 0.3));
 }
-
-.logo-img {
-    height: 60px;
-    width: auto;
-    max-width: 150px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .logo-img {
-        height: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        height: 45px;
-    }
 }
 
 .nav-menu {
