@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" width="280" height="180">
+  <!-- Background transparent -->
+  <defs>
+    <style>
+      .hidden-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-style: italic; }
+      .hidden-green { fill: #2E8B57; font-size: 48px; }
+      .romania-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-style: italic; }
+      .romania-blue { fill: #2FA4FF; font-size: 48px; }
+    </style>
+  </defs>
+  
+  <!-- Mountain peaks (simplified) -->
+  <g id="mountains">
+    <!-- Left mountain -->
+    <polygon points="20,80 50,30 80,80" fill="#2E8B57" opacity="0.8"/>
+    <!-- Middle mountain -->
+    <polygon points="70,80 110,20 150,80" fill="#2E8B57" opacity="0.9"/>
+    <!-- Right mountain -->
+    <polygon points="140,80 170,35 200,80" fill="#2E8B57" opacity="0.8"/>
+  </g>
+  
+  <!-- Water/river (curved) -->
+  <path d="M 30,100 Q 80,95 150,110 T 260,120" stroke="#2FA4FF" stroke-width="6" fill="none" opacity="0.7"/>
+  
+  <!-- Text "Hidden" -->
+  <text x="20" y="140" class="hidden-text hidden-green">Hidden</text>
+  
+  <!-- Text "Romania" -->
+  <text x="20" y="170" class="romania-text romania-blue">Romania</text>
+</svg>
